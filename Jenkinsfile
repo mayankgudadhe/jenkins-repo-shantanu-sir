@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage ("Git") {
             steps {
-                sh 'sudo yum install git -y'
+                sh 'yum install git -y'
             }
         }
         stage ('Maven') {
