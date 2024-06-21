@@ -5,10 +5,19 @@ pipeline {
             customWorkspace "/mnt/test"
     }
     }
-    tools {
-        maven "apache_maven"
-    }
     stages {
+        stage ('Git') {
+            steps { 
+                sh 'sudo yum install git -y'
+            }
+        }
+        stage ('Maven') {
+            steps {
+                dir ("/mnt/test/") {
+                sh 'sudo yum install maven -y'
+                }
+            }
+        }
         stage ('Compile Stage') {
 
             steps { 
