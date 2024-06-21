@@ -1,34 +1,22 @@
 pipeline {
     agent {
-
-            label 'slave-1'
+        label {
+            label 'built-in'
+            customWorkspace "/mnt/test"
     }
-
+    }
+    tool {
+        maven "apache_maven"
+    }
     stages {
         stage ('Compile Stage') {
 
-            steps {
+            steps { 
+                dir ("/mnt/test/jenkins-repo-shantanu-sir/") {
                 
-                    sh 'mvn clean compile'
+                    sh 'mvn clean package'
                 }
-            
-        }
-
-        stage ('Testing Stage') {
-
-            steps {
-                
-                    sh 'mvn test'
-                }
-            
-        }
-
-
-        stage ('Install Stage') {
-            steps {
-                
-                    sh 'mvn install'
-                }
+            }
             
         }
         
