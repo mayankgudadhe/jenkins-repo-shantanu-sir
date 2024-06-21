@@ -5,12 +5,6 @@ pipeline {
             customWorkspace "/mnt/test"
     }
     }
-    stages {
-        stage ('Git') {
-            steps { 
-                sh 'sudo yum install git -y'
-            }
-        }
         stage ('Maven') {
             steps {
                 dir ("/mnt/test/") {
