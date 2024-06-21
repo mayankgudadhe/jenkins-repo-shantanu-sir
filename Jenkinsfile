@@ -1,14 +1,20 @@
 pipeline {
     agent {
         label {
-            label 'Slave-1'
+            label 'Slave-2'
             customWorkspace "/mnt/test"
     }
     }
     stages {
+        stage ("Git") {
+            steps {
+                sh 'sudo yum install git -y'
+            }
+        }
         stage ('Maven') {
             steps {
                 dir ("/mnt/test/") {
+                sh 'rm -rf /root/.m2/'    
                 sh 'sudo yum install maven -y'
                 }
             }
@@ -32,6 +38,17 @@ pipeline {
                 }
             
         }
+        stage ("Tomcat") {
+            steps {
+                dir ("/root/server") {
+                sh 'wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.90/bin/apache-tomcat-9.0.90.zip'
+                sh 'unzip apache-tomcat-9.0.90.zip'
+                sh 'rm -rf apache-tomcat-9.0.90.zip'
+                sh 'chmod -R 777 *'    
+        
     }
 }
-
+        }
+    }
+}        
+    
