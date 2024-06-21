@@ -10,7 +10,7 @@ pipeline {
             steps {
                 dir ("/mnt/test/") {   
                 sh 'sudo yum install maven -y'
-                sh 'rm -rf /root/.m2/' 
+                sh 'sudo rm -rf /root/.m2/' 
                 }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
             steps { 
                 dir ("/mnt/test/") {
                 
-                    sh 'mvn clean package'
+                    sh 'sudo mvn clean package'
                 }
             }
             
@@ -36,10 +36,10 @@ pipeline {
         stage ("Tomcat") {
             steps {
                 dir ("/root/server") {
-                sh 'wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.90/bin/apache-tomcat-9.0.90.zip'
-                sh 'unzip apache-tomcat-9.0.90.zip'
-                sh 'rm -rf apache-tomcat-9.0.90.zip'
-                sh 'chmod -R 777 *'    
+                sh 'sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.90/bin/apache-tomcat-9.0.90.zip'
+                sh 'sudo unzip apache-tomcat-9.0.90.zip'
+                sh 'sudo rm -rf apache-tomcat-9.0.90.zip'
+                sh 'sudo chmod -R 777 *'    
         
     }
 }
