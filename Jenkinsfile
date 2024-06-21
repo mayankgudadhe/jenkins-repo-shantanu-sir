@@ -5,6 +5,7 @@ pipeline {
             customWorkspace "/mnt/test"
     }
     }
+    stages {
         stage ('Maven') {
             steps {
                 dir ("/mnt/test/") {
@@ -32,4 +33,5 @@ pipeline {
             
         }
     }
+}
 
