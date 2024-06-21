@@ -36,7 +36,7 @@ pipeline {
         }
         stage ("Tomcat") {
             steps {
-                dir ("/root/server") {
+                dir ("/mnt/server") {
                 sh 'sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.90/bin/apache-tomcat-9.0.90.zip'
                 sh 'sudo unzip apache-tomcat-9.0.90.zip'
                 sh 'sudo rm -rf apache-tomcat-9.0.90.zip'
