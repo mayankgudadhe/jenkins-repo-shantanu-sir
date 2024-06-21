@@ -12,7 +12,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps { 
-                dir ("/mnt/test/jenkins-repo-shantanu-sir/") {
+                dir ("/mnt/test/") {
                 
                     sh 'mvn clean package'
                 }
