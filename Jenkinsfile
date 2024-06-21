@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage ('Maven') {
             steps {
+                sh 'sudo chmod -R 777 /root/server'
                 dir ("/mnt/test/") {   
                 sh 'sudo yum install maven -y'
                 sh 'sudo rm -rf /root/.m2/' 
