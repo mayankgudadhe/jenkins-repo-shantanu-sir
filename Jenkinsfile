@@ -6,16 +6,11 @@ pipeline {
     }
     }
     stages {
-        stage ("Git") {
-            steps {
-                sh 'yum install git -y'
-            }
-        }
         stage ('Maven') {
             steps {
-                dir ("/mnt/test/") {
-                sh 'rm -rf /root/.m2/'    
+                dir ("/mnt/test/") {   
                 sh 'sudo yum install maven -y'
+                sh 'rm -rf /root/.m2/' 
                 }
             }
         }
