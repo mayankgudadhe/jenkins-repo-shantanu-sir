@@ -5,7 +5,7 @@ pipeline {
             customWorkspace "/mnt/test"
     }
     }
-    tool {
+    tools {
         maven "apache_maven"
     }
     stages {
